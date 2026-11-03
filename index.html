@@ -9,6 +9,12 @@
       content="02_OS is an agent-native developer operating system. Public alpha, not a production operating system."
     />
     <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
     <meta property="og:title" content="02_OS" />
     <meta
@@ -23,7 +29,7 @@
     </div>
 
     <header class="top">
-      <a class="brand" href="#top">
+      <a class="brand" href="#top" data-replay-portal title="Replay 02 Zero Portal opening">
         <img src="assets/logo.svg" alt="" width="36" height="33" />
         <span>02_OS</span>
       </a>
@@ -36,7 +42,10 @@
 
     <main id="top">
       <section class="hero">
-        <p class="pill">Public alpha</p>
+        <div class="eyebrow-row">
+          <span class="pill">Public alpha</span>
+          <span class="descriptor">local-first · Git-aware · agent-native</span>
+        </div>
         <h1>An operating system for the agent working in the repo.</h1>
         <p class="lede">
           02_OS pairs a GNOME desktop with a local repository runtime. The
@@ -45,8 +54,17 @@
           requires an account or a cloud model.
         </p>
         <div class="actions">
-          <a class="button" id="download" href="https://github.com/csy20/02_OS/releases/latest">
-            Download the latest release
+          <a class="button button-primary" id="download" href="https://github.com/csy20/02_OS/releases/latest">
+            <svg class="btn-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path
+                d="M8 2.5v7.5m0 0L5.25 7.25M8 10l2.75-2.75M3 13h10"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <span class="btn-label">Download the latest release</span>
           </a>
           <a class="button" href="https://github.com/csy20/02_OS">GitHub</a>
         </div>
@@ -58,6 +76,7 @@
 
       <section id="desktop" class="grid">
         <article>
+          <span class="index">01 / Shell</span>
           <h2>Desktop</h2>
           <p>
             GNOME 51, Pop Shell tiling, and a dock with the installer, files,
@@ -66,6 +85,7 @@
           </p>
         </article>
         <article>
+          <span class="index">02 / Intelligence</span>
           <h2>Runtime</h2>
           <p>
             <code>02</code> and <code>02-agentd</code> keep a local evidence
@@ -74,6 +94,7 @@
           </p>
         </article>
         <article>
+          <span class="index">03 / Isolation</span>
           <h2>Local</h2>
           <p>
             No telemetry, no cloud database, and no account. The live image
@@ -83,20 +104,57 @@
         </article>
       </section>
 
+      <div class="flow-strip" aria-label="Local evidence path">
+        <span class="flow-label">Evidence path</span>
+        <div class="flow-steps">
+          <span>worktree + git diff</span>
+          <span class="flow-arrow" aria-hidden="true">→</span>
+          <span>tree-sitter + SQLite</span>
+          <span class="flow-arrow" aria-hidden="true">→</span>
+          <span><code>02-agentd</code> (MCP)</span>
+          <span class="flow-arrow" aria-hidden="true">→</span>
+          <span>bounded context</span>
+        </div>
+      </div>
+
       <section id="try" class="try">
-        <h2>Get the image</h2>
+        <div class="try-header">
+          <span class="index">04 / Release</span>
+          <h2>Get the image</h2>
+        </div>
         <p>
           The files below are the latest release. If the image is split, download
           every part, join them, then check the sha256 before you boot.
         </p>
-        <pre><code id="join">The join command appears when the latest release is read.</code></pre>
-        <ul id="files"></ul>
+
+        <div class="code-card">
+          <div class="code-bar">
+            <span>Reassemble &amp; verify checksum</span>
+            <button type="button" class="copy-btn" id="copy-join">Copy</button>
+          </div>
+          <pre><code id="join">The join command appears when the latest release is read.</code></pre>
+        </div>
+
+        <div class="files-card">
+          <div class="code-bar">
+            <span>Release files</span>
+            <span class="code-bar-meta" id="files-count">Newest GitHub release</span>
+          </div>
+          <ul id="files"></ul>
+        </div>
       </section>
     </main>
 
     <footer>
-      <span>02_OS</span>
-      <a href="https://github.com/csy20/02_OS/releases/latest">Latest release</a>
+      <div class="footer-left">
+        <span class="footer-brand">02_OS</span>
+        <span class="footer-sep">·</span>
+        <button type="button" class="link-btn" data-replay-portal>Replay opening</button>
+      </div>
+      <div class="footer-right">
+        <a href="https://github.com/csy20/02_OS">GitHub</a>
+        <a href="https://github.com/csy20/02_OS/releases/latest">Latest release</a>
+      </div>
     </footer>
     <script src="portal.js"></script>
     <script src="latest.js"></script>

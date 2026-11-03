@@ -139,14 +139,19 @@ function playPortal(overlay) {
   }
 
   let view = size();
-  window.addEventListener("resize", () => {
+  const onResize = () => {
     view = size();
-  });
+  };
+  window.addEventListener("resize", onResize);
+
+  drawPortalFrame(ctx, view[0], view[1], 0);
+  overlay.style.background = "transparent";
 
   function frame(now) {
     const elapsed = (now - start) / 1000;
     drawPortalFrame(ctx, view[0], view[1], elapsed);
     if (elapsed >= DURATION_SECONDS) {
+      window.removeEventListener("resize", onResize);
       overlay.remove();
       return;
     }
@@ -160,3 +165,15 @@ const overlay = document.querySelector("#portal");
 const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 if (!overlay || reduce) overlay?.remove();
 else playPortal(overlay);
+
+document.addEventListener("click", (event) => {
+  const trigger = event.target.closest("[data-replay-portal]");
+  if (!trigger || document.querySelector("#portal")) return;
+  event.preventDefault();
+  const fresh = document.createElement("div");
+  fresh.id = "portal";
+  fresh.setAttribute("aria-hidden", "true");
+  fresh.appendChild(document.createElement("canvas"));
+  document.body.appendChild(fresh);
+  playPortal(fresh);
+});
