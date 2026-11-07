@@ -36,7 +36,6 @@
       <nav>
         <a href="#desktop">Desktop</a>
         <a href="#try">Try it</a>
-        <a href="#schedule">Schedule</a>
         <a href="https://github.com/csy20/02_OS">Source</a>
       </nav>
     </header>
@@ -125,8 +124,7 @@
         </div>
         <p>
           The files below are the latest release. If the image is split, download
-          every part, join them, then check the sha256 before you boot. That
-          release is a public alpha. The daily ISO is the schedule further down.
+          every part, join them, then check the sha256 before you boot.
         </p>
 
         <div class="code-card">
@@ -144,86 +142,6 @@
           </div>
           <ul id="files"></ul>
         </div>
-      </section>
-
-      <section id="schedule" class="schedule">
-        <div class="try-header">
-          <span class="index">05 / Schedule</span>
-          <h2>A daily ISO</h2>
-        </div>
-        <p>
-          A daily image is one whole <code>.iso</code> you install and use as
-          the machine. The download above is still
-          <a href="https://github.com/csy20/02_OS/releases/tag/v2026.10.24">v2026.10.24</a>,
-          published 24 Oct 2026 as split parts. These dates are targets. A
-          missed gate moves every date after it.
-        </p>
-        <ol>
-          <li>
-            <time datetime="2026-11-08">Now</time>
-            <div>
-              <h3>No daily image</h3>
-              <p>
-                Host tests of the current source pass. That source has no ISO,
-                and it has not been booted. The file you can download is the
-                October public alpha.
-              </p>
-            </div>
-          </li>
-          <li>
-            <time datetime="2026-11-15">15 Nov</time>
-            <div>
-              <h3>Candidate</h3>
-              <p>
-                One whole ISO and its sha256, built from the current source.
-                The build needs 20 GiB free. This file is for the next two
-                checks, not for daily use.
-              </p>
-            </div>
-          </li>
-          <li>
-            <time datetime="2026-11-22">22 Nov</time>
-            <div>
-              <h3>Live boot</h3>
-              <p>
-                That ISO boots on UEFI: splash, sign-in, desktop, network,
-                files, and a terminal.
-              </p>
-            </div>
-          </li>
-          <li>
-            <time datetime="2026-11-29">29 Nov</time>
-            <div>
-              <h3>Install</h3>
-              <p>
-                A fresh install on a disposable disk, then a reboot into that
-                system. The account is the one created in the installer.
-              </p>
-            </div>
-          </li>
-          <li>
-            <time datetime="2026-12-06">6 Dec</time>
-            <div>
-              <h3>Personal daily ISO</h3>
-              <p>
-                One work day on that install, including suspend and a reboot.
-                Published as a single ISO plus checksum. This is a personal
-                image, not a public production release.
-              </p>
-            </div>
-          </li>
-          <li>
-            <time>Open</time>
-            <div>
-              <h3>Public daily release</h3>
-              <p>
-                No date. It starts only after the personal image has been the
-                machine for a week.
-              </p>
-            </div>
-          </li>
-        </ol>
-        <p class="note">Checked 8 Nov 2026.</p>
       </section>
     </main>
 
